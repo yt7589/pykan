@@ -1,3 +1,4 @@
+KAN for radar signal processing experiment platform.
 <img width="600" alt="kan_plot" src="https://github.com/KindXiaoming/pykan/assets/23551623/a2d2d225-b4d2-4c1e-823e-bc45c7ea96f9">
 
 # Kolmogorov-Arnold Networks (KANs)

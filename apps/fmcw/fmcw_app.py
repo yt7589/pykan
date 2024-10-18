@@ -6,6 +6,7 @@ import sympy as sp
 from sympy.abc import x
 from kan import KAN
 from apps.fmcw.fmcw_ds import FmcwDs
+from apps.fmcw.fmcw_config import FmcwConfig as Fcfg
 
 
 
@@ -19,8 +20,8 @@ class FmcwApp(object):
         dataset = FmcwDs.create_dataset()
         print(f'X_train: {dataset["train_input"].shape}; y_train: {dataset["train_label"].shape};')
         print(f'X_test: {dataset["test_input"].shape}; y_test: {dataset["test_label"].shape};')
-        model = KAN(width=[512,256,128,64,32,16,1], grid=3, k=3, seed=0)
-        model.train(dataset, opt="LBFGS", steps=20, lamb=0.001, lamb_entropy=2.)
+        model = KAN(width=[512,256,128,64,32,16,1], grid=3, k=3, seed=0, device=Fcfg.device)
+        model.train(dataset, opt="LBFGS", steps=20, lamb=0.001, lamb_entropy=2., device=Fcfg.device)
 
 def main(args:argparse.Namespace = {}) -> None:
     FmcwApp.startup(args=args)
